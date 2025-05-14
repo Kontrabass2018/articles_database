@@ -7,7 +7,7 @@ import os
 
 url = "https://api.zerogpt.com/api/detect/detectText"
 
-basepath = "sample_data/articles_2024"
+basepath = "sample_data/articles_2023"
 for fname in os.listdir(basepath):
     dois, is_human, fk_prct, ai_words, txt_words = [], [], [], [], []
     volume = fname.split(".")[0]
