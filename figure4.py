@@ -99,11 +99,11 @@ from scipy.stats import norm
 
 
 
-fig, axes = plt.subplots(2, 3, figsize=(22, 12), sharex=True, sharey=True)
+fig, axes = plt.subplots(3, 3, figsize=(11, 11), sharex=True, sharey=True)
 axes = axes.flatten()
-for idx, subject in enumerate(results_df[results_df['significant']]["subject"][:6]):
+for idx, subject in enumerate(results_df[results_df['significant']]["subject"][:9]):
     ax = axes[idx]
-    for period, color, label in zip(['Before Nov 22, 2022', 'After Nov 22, 2022'], ['skyblue', 'salmon'], ['Before', 'After']):
+    for period, color, label in zip(['Before Nov 22, 2022', 'After Nov 22, 2022'], ['blue', 'red'], ['Before', 'After']):
         data = filtered_df[(filtered_df['subject'] == subject) & (filtered_df['period'] == period)]['fk_idx']
 
         
@@ -111,7 +111,7 @@ for idx, subject in enumerate(results_df[results_df['significant']]["subject"][:
         var = data.var()
         n = len(data)
         # Plot normalized histogram
-        ax.hist(data, bins=20, density=True, alpha=0.6, color=color, label=label + f' (n={n})')
+        ax.hist(data, bins=20, density=True, alpha=0.3, color=color, label=label + f' (n={n})')
         # Plot mean as a vertical line
         ax.axvline(mean, color=color, linestyle='--', linewidth=2)
         # Annotate mean and variance
@@ -126,7 +126,7 @@ for idx, subject in enumerate(results_df[results_df['significant']]["subject"][:
     ax.set_xlabel('FKGL Score')
     ax.set_ylabel('Density')
     ax.legend()
-    ax.grid(True, alpha=0.3)
+    # ax.grid(True, alpha=0.3)
 
 plt.suptitle('Distribution of FKGL Scores for Significant Subjects\
 (Before vs After Nov 22, 2022, 95% CI Filtered, Gaussian Fit)', fontsize=18)
