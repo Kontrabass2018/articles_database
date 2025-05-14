@@ -4,6 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy.stats import norm
+plt.rcParams['svg.fonttype'] = 'none'
 
 # Load the FKGL scores data
 scores_df = pd.read_csv('sample_data/Nature_scores.csv')
