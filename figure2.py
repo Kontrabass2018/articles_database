@@ -22,7 +22,7 @@ fkgl_25 = filtered_df['fk_idx'].quantile(0.25)
 fkgl_75 = filtered_df['fk_idx'].quantile(0.75)
 
 # Plot boxplots by month, colored by period, with percentile lines
-plt.figure(figsize=(16, 8))
+plt.figure(figsize=(15, 5))
 sns.boxplot(data=filtered_df, 
             x='year_month', 
             y='fk_idx',
