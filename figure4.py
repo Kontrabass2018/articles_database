@@ -4,6 +4,7 @@ from scipy import stats
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pdb
+plt.rcParams['svg.fonttype'] = 'none'
 # Load and merge datasets
 basepath = "sample_data"
 scores_df = pd.read_csv(f'{basepath}/Nature_scores.csv')
@@ -25,7 +26,7 @@ filtered_df['period'] = np.where(filtered_df['date'] < '2022-11-22',
 # Calculate article counts by subject and period
 subject_counts = filtered_df.groupby(['subject', 'period'])['doi'].count().unstack()
 
-pdb.set_trace()
+
 # Find subjects with at least 50 articles in each period
 valid_subjects = subject_counts[
     (subject_counts['Before Nov 22, 2022'] >= 50) & 

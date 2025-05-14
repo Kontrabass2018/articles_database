@@ -4,6 +4,7 @@ from scipy import stats
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pdb
+plt.rcParams['svg.fonttype'] = 'none'
 # Load and merge datasets
 basepath = "sample_data"
 scores_df = pd.read_csv(f'{basepath}/Nature_scores.csv')
